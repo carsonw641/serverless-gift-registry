@@ -1,0 +1,36 @@
+<div class="banner">
+  <h1>Gift List</h1>
+</div>
+
+<div class="page-content">
+  <div class="gift-list">
+    <div class="item-card" *ngFor="let gift of gifts">
+      <mat-card>
+        <mat-card-title>{{gift.name}}</mat-card-title>
+        <mat-card-subtitle *ngIf="gift.url != ''"><a href={{gift.url}}>Website</a></mat-card-subtitle>
+        <img *ngIf="gift.imageUrl != ''" mat-card-image class="card-image" src={{gift.imageUrl}}>
+        <p *ngIf="gift.imageUrl == ''" mat-card-image class="card-image material-icons">photo</p>
+        <mat-card-content>
+          <div class="card-info">
+            <p>Quantity: {{gift.quantity}}</p>
+            <p *ngIf="gift.price > 0">Price: ${{gift.price}}</p>
+          </div>  
+        </mat-card-content>
+        <mat-card-actions>
+          <p class="material-icons card-actions" (click)="editItem(gift)">edit</p>
+          <p class="material-icons card-actions" (click)="deleteItem(gift)">delete</p>
+        </mat-card-actions>
+      </mat-card>          
+    </div>
+  </div>
+</div>
+
+<div id="add-item-button" class="add-button" (click)="addItem()">
+  <p class="material-icons">add</p>
+</div>
+
+<ng-container *ngIf="enterData">
+  <item-form (submit)="dataSubmit($event)" (close)="closeForm()" [(editItemModel)]="editItemModel"></item-form>
+</ng-container>
+
+

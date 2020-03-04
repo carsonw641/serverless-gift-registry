@@ -1,0 +1,40 @@
+<div class="form-c">
+    <div class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Item Name</mat-label>
+            <input [(ngModel)]="name" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Quantity</mat-label>
+            <input [(ngModel)]="quantity" matInput type="number" min="1">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price (Optional)</mat-label>
+            <input [(ngModel)]="price" matInput type="number" min="0">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Product URL (Optional)</mat-label>
+            <input [(ngModel)]="url" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill" *ngIf="!imageSubmitted">
+            <mat-label>Image URL (Optional)</mat-label>
+            <input [(ngModel)]="imageUrl" matInput>
+        </mat-form-field>
+    </div>
+
+    <div *ngIf="imageUrl != ''" class="image-c">
+        <img (error)="errorHandler($event)"src={{imageUrl}}>
+        <button class="image-delete material-icons" (click)="removeImage()">clear</button>
+    </div>
+
+    <div class="actions-row">
+        <div class="actions">
+            <button mat-raised-button (click)="closeForm()">Close</button>
+        </div>
+        <div class="actions">
+            <button mat-raised-button (click)="submitData()">Submit</button>
+        </div>
+    </div>
+
+    
+</div>

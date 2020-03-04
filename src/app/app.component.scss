@@ -1,0 +1,68 @@
+.banner {
+    align-items: center;
+    background-color: lightblue;
+    display: flex;
+    height: 20%;
+    justify-content: center;
+    width: 100%;
+}
+
+.add-button {
+    background-color: white;
+    bottom: 30px;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 50px;
+    height: 80px;
+    margin: 0;
+    position: fixed;
+    right: 30px;
+    width: 80px;
+
+    &:hover {
+        background-color: whitesmoke;
+    }
+
+    p {
+        font-size: 80px;
+        margin: 0;
+    }
+}
+
+.card-image {
+    display: flex;
+    font-size: 300px;
+    height: 300px;
+    margin: 20px;
+    width: 300px;
+}
+
+.card-info {
+    display: flex;
+    
+    p {padding-right: 10px;}
+}
+
+.item-card {
+    margin: 1rem;
+}
+
+.gift-list {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    justify-content: center;
+}
+
+.page-content {
+    background-color: lightgrey;
+    min-height: 80%;
+}
+
+.card-actions {
+    &:hover {
+        cursor: pointer;
+    }
+    
+    margin: 0 10px;
+}

@@ -1,0 +1,72 @@
+.form-c {
+    border-radius: 15px;
+    position: fixed;
+    background-color: white;
+    width: 50vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);  
+    box-shadow: 3px 2px 5px 0 grey; 
+}
+
+.form {
+    padding: 1rem;
+
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+.actions {
+    display: flex;
+    padding: 1rem;
+
+    button{
+        min-width: 100px;
+    }
+}
+
+.actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image-c {
+    margin: auto;
+    height: 300px;
+    width: 300px;
+    position: relative;
+
+    img {
+        display: block;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+    }
+
+    button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        visibility: hidden; 
+
+
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        padding: 0;
+        background: white;
+        border: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &:hover {
+        button {
+            visibility: visible;
+        }
+    }
+}
