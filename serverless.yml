@@ -10,9 +10,9 @@
 #    docs.serverless.com
 #
 # Happy Coding!
-service: my-first-service
+service: gift-registry-api
 # app and org for use with dashboard.serverless.com
-app: my-first-app
+app: gift-registry-app
 org: carsonw641
 
 # You can pin your service to only deploy with a specific Serverless version
@@ -28,7 +28,7 @@ outputs:
 
 # you can overwrite defaults here
 #  stage: dev
-#  region: us-east-1
+region: us-west-2
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
