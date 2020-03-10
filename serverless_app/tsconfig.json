@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs"
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "api/*.ts",
+    "lib/*.ts"
+  ],
+  "types": [
+    "node",
+    "aws-sdk"
+  ]
+}
