@@ -4,11 +4,14 @@
   "description": "serverless typescript lambda definitions",
   "main": "index.js",
   "scripts": {
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "build": "mkdir -p nodejs/node_modules/ && tsc && cp -r lib/*.js nodejs/node_modules/ && zip -r util-layer.zip nodejs",
+    "offline": "NODE_PATH=\"${PWD}/nodejs/node_modules\" sls offline"
   },
   "devDependencies": {
     "@types/node": "^13.9.0",
     "aws-sdk": "^2.634.0",
+    "serverless-offline": "^6.0.0-alpha.67",
     "typescript": "^3.8.3"
   },
   "dependencies": {

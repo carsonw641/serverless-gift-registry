@@ -1,6 +1,5 @@
 'use strict'
 
-
 export module AwsUtil {
     export function generateItemParams(tableName: string, data: any) {
         let params = {};

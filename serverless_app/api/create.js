@@ -1,7 +1,8 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 const aws_sdk_1 = require("aws-sdk");
-const aws_util_1 = require("/opt/aws-util");
+// @ts-ignore
+const aws_util_1 = require("aws-util");
 const dynamoDb = new aws_sdk_1.DynamoDB.DocumentClient();
 module.exports.handler = (event, context, callback) => {
     const data = JSON.parse(event.body);

@@ -1,7 +1,9 @@
 'use strict'
 
 import {DynamoDB} from 'aws-sdk';
-import {AwsUtil} from '/opt/aws-util';
+
+// @ts-ignore
+import {AwsUtil} from 'aws-util';
 
 const dynamoDb = new DynamoDB.DocumentClient();
 

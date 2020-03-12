@@ -2,13 +2,33 @@ service: sls-registry-rest-api-with-dynamodb
 
 frameworkVersion: ">=1.1.0 <2.0.0"
 
+#for handling stages: sls deploy --stage {stageName: qa}
+#1.
+#environment:
+  #MY_SECRET: ${file(../config.${self:provider.stage}.json):CREDS}
+#2.
+#custom:
+  # stage: ${opt:stage, self:provider.stage}
+  # domains:
+  #   prod: api.mycompany.com
+  #   staging: staging-api.mycompany.com
+  #   dev: dev-api.mycompany.com
+
+  # customDomain:
+  #   basePath: ""
+  #   domainName: ${self:custom.domains.${self:custom.stage}}
+  #   stage: "${self:custom.stage}"
+  #   createRoute53Record: true
+
+
 provider:
   name: aws
   runtime: nodejs12.x
   region: us-west-2
+  stage: ${opt:stage, 'dev'}
   environment:
-    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-    LAMBDA_LAYER: ${self:service}-${opt:stage, self:provider.stage}
+    DYNAMODB_TABLE: ${self:service}-${self:provider.stage}
+    LAMBDA_LAYER: ${self:service}-${self:provider.stage}
     REGION: ${self:provider.region}
   iamRoleStatements:
     - Effect: Allow
@@ -34,7 +54,9 @@ functions:
 
 layers:
   AwsUtil:
-    path: './lib/'
+    package:
+      artifact: util-layer.zip
+    #path: './lib/'
     name: ${self:provider.environment.LAMBDA_LAYER}-aws-util
 
 resources:
@@ -62,4 +84,6 @@ resources:
           WriteCapacityUnits: 1
         TableName: ${self:provider.environment.DYNAMODB_TABLE}
 
+plugins:
+  - serverless-offline
         
