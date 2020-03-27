@@ -51,7 +51,34 @@ functions:
           cors: true
     layers:
       - { Ref: AwsUtilLambdaLayer }
-
+  retrieve:
+    handler: api/retrieve.handler
+    events:
+      -http:
+        path: gifts
+        method: get
+        cors: true
+    layers:
+      - { Ref: AwsUtilLambdaLayer }
+  update:
+    handler: api/update.handler
+    events:
+      - http:
+          path: gifts
+          method: put
+          cors: true
+    layers:
+      - { Ref: AwsUtilLambdaLayer }
+  delete:
+    handler: api/delete.handler
+    events:
+      - http:
+          path: gifts
+          method: delete
+          cors: true
+    layers:
+      - { Ref: AwsUtilLambdaLayer }
+  
 layers:
   AwsUtil:
     package:
